@@ -39,7 +39,7 @@ Resources:
       StorageType: gp2
       MasterUsername: !Ref RDSUsername
       # MasterUserPassword: !Ref RDSUserPassword
-      MasterUserPassword: {{resolve:ssm-secure:/user/password}}
+      MasterUserPassword: "{{resolve:ssm-secure:/user/password}}"
       DBSubnetGroupName: !Ref DBSubnetGroup
       # シングルAZ
       MultiAZ: false
