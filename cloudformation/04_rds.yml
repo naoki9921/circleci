@@ -45,8 +45,7 @@ Resources:
       MultiAZ: false
       AvailabilityZone: !Select 
         - 0
-        - !GetAZs
-            Ref: AWS::Region
+        - Fn::GetAZs: !Ref AWS::Region
       VPCSecurityGroups:
         - !ImportValue lecture10-sg-rds
       # 自動バックアップの無効化
