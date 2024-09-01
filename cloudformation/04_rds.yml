@@ -43,7 +43,10 @@ Resources:
       DBSubnetGroupName: !Ref DBSubnetGroup
       # シングルAZ
       MultiAZ: false
-      AvailabilityZone: us-east-1a
+      AvailabilityZone: !Select 
+        - 0
+        - !GetAZs
+            Ref: AWS::Region
       VPCSecurityGroups:
         - !ImportValue lecture10-sg-rds
       # 自動バックアップの無効化
